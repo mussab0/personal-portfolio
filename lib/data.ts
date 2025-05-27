@@ -1,7 +1,7 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
+import { LuBriefcase, LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
@@ -35,28 +35,28 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Full-Stack Developer (On-site & Remote)",
+    location: "KarimApps",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2019",
+      "I've been working at KarimApps for over 4 years. Started on-site and currently working remotely as a full-stack developer. I contributed to many projects using React, React Native, Next.js, InertiaJs and Laravel.",
+    icon: React.createElement(LuBriefcase),
+    date: "2021 - Present",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Full-Stack Developer (Part-Time, Remote)",
+    location: "MyPromax",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
-    icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+      "Worked remotely as a part-time full-stack developer for 1.5 years. Built several client applications using React, VueJS, InertiaJs and Laravel.",
+    icon: React.createElement(LuBriefcase),
+    date: "2023 - 2024",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "UI/UX Designer (Part-Time, Remote)",
+    location: "NextWys",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "Worked remotely as a UI/UX designer for 1 year, designing modern and user-friendly interfaces using Figma and Adobe XD.",
+    icon: React.createElement(LuBriefcase),
+    date: "2024 - Present",
   },
 ] as const;
 
@@ -83,7 +83,6 @@ export const projectsData = [
     imageUrl: wordanalyticsImg,
   },
 ] as const;
-
 export const skillsData = [
   "HTML",
   "CSS",
@@ -91,17 +90,20 @@ export const skillsData = [
   "TypeScript",
   "React",
   "Next.js",
-  "Node.js",
+  "Vue.js",
+  "Nuxt.js",
+  "React Native",
+  "Laravel",
+  "Tailwind CSS",
+  "MySQL",
+  "Firebase",
   "Git",
-  "Tailwind",
-  "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
-  "Python",
-  "Django",
   "Framer Motion",
+  "Figma",
+  "Adobe XD",
+  "AI Integration",
+  "OpenAI",
+  "Google Gemini",
+  "DeepSeek"
 ] as const;
+
