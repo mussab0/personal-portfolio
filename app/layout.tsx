@@ -30,10 +30,12 @@ export default function RootLayout({
             "@type": "Person",
             "name": "Mussab Hanif",
             "url": "https://mussabhanif.website",
-            "image": "https://mussabhanif.website/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmussab.56de077b.jpg&w=384&q=95", // optional, if you have one
+            "image": "https://mussabhanif.website/mussab.jpg", // optional, if you have one
             "sameAs": [
               "https://github.com/mussabhanif",
-              "https://linkedin.com/in/mussabhanif"
+              "https://linkedin.com/in/mussabhanif",
+              "https://www.instagram.com/mussabhanif",
+              "https://twitter.com/mussabhanif"
             ],
             "jobTitle": "Software Engineer / Full-Stack Developer",
             "worksFor": {
@@ -41,11 +43,20 @@ export default function RootLayout({
               "name": "Freelance / Self-Employed"
             },
             "knowsAbout": [
-              "React", "Next.js", "Vue.js", "Laravel", "Firebase", "React Native", 
+              "React", "Next.js", "Vue.js", "Laravel", "Firebase", "React Native",
             ],
             "description": "Mussab is a professional full-stack developer with 5 years of experience building modern web and mobile applications.",
             "birthDate": "2005-11-03",
-            "nationality": "Pakistani"
+            "nationality": "Pakistani",
+            "gender": "Male",
+            "birthPlace": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Pakistan"
+              }
+            }
+
           })
         }} />
       </head>
@@ -63,7 +74,7 @@ export default function RootLayout({
 
             <Toaster position="top-right" />
             <ThemeSwitch />
-            <WhatsappIcon/>
+            <WhatsappIcon />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>
