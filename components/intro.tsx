@@ -9,7 +9,7 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithub, FaGithubSquare, FaWhatsapp, FaWhatsappSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import profilePic from "@/public/mussab.jpg"; 
+import profilePic from "@/public/mussab.jpg";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
