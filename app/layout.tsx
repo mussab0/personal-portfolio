@@ -74,7 +74,7 @@ export default function RootLayout({
 
             <Toaster position="top-right" />
             <ThemeSwitch />
-{/*             <WhatsappIcon /> */}
+            <WhatsappIcon />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>
