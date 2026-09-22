@@ -1,0 +1,90 @@
+"use client";
+
+import {
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+type MagnetProps = {
+  children: ReactNode;
+  padding?: number;
+  strength?: number;
+  activeTransition?: string;
+  inactiveTransition?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  /** Max horizontal drift (px) in each direction. */
+  maxX?: number;
+  /** Max upward drift (px). Keeps the element from floating into the nav. */
+  maxUp?: number;
+  /** Max downward drift (px). */
+  maxDown?: number;
+};
+
+const clamp = (v: number, min: number, max: number) =>
+  Math.min(Math.max(v, min), max);
+
+export default function Magnet({
+  children,
+  padding = 150,
+  strength = 3,
+  activeTransition = "transform 0.3s ease-out",
+  inactiveTransition = "transform 0.6s ease-in-out",
+  className,
+  style,
+  maxX = Infinity,
+  maxUp = Infinity,
+  maxDown = Infinity,
+}: MagnetProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      const el = ref.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const distX = e.clientX - centerX;
+      const distY = e.clientY - centerY;
+
+      const withinX = Math.abs(distX) < rect.width / 2 + padding;
+      const withinY = Math.abs(distY) < rect.height / 2 + padding;
+
+      if (withinX && withinY) {
+        setActive(true);
+        setPos({
+          x: clamp(distX / strength, -maxX, maxX),
+          y: clamp(distY / strength, -maxUp, maxDown),
+        });
+      } else {
+        setActive(false);
+        setPos({ x: 0, y: 0 });
+      }
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, [padding, strength, maxX, maxUp, maxDown]);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        ...style,
+        transform: `translate3d(${pos.x}px, ${pos.y}px, 0)`,
+        transition: active ? activeTransition : inactiveTransition,
+        willChange: "transform",
+      }}
+    >
+      {children}
+    </div>
+  );
+}

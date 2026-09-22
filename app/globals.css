@@ -2,14 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  --line-color: #e5e7eb;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
+html,
+body,
+#root,
+#__next {
+  background: #0c0c0c;
+  font-family: "Kanit", sans-serif;
 }
 
-.borderBlack {
-  @apply border border-black/10;
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

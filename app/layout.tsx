@@ -1,20 +1,17 @@
-import Header from "@/components/header";
 import "./globals.css";
-import { Inter } from "next/font/google";
-import ActiveSectionContextProvider from "@/context/active-section-context";
-import Footer from "@/components/footer";
-import ThemeSwitch from "@/components/theme-switch";
-import ThemeContextProvider from "@/context/theme-context";
+import { Kanit } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import WhatsappIcon from "@/components/whatsapp-icon";
 
-const inter = Inter({ subsets: ["latin"] });
+const kanit = Kanit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata = {
-  title: "Mussab Hanif | Full-Stack Developer",
-  description: "Mussab is a professional freelance full-stack developer specializing in React, VueJS, Next.js, Laravel, and React Native.",
+  title: "Mussab — 3D Creator",
+  description:
+    "Mussab — a 3D creator driven by crafting striking and unforgettable projects.",
 };
-
 
 export default function RootLayout({
   children,
@@ -24,59 +21,38 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Mussab Hanif",
-            "url": "https://mussabhanif.website",
-            "image": "https://mussabhanif.website/mussab.jpg", // optional, if you have one
-            "sameAs": [
-              "https://github.com/mussabhanif",
-              "https://linkedin.com/in/mussabhanif",
-              "https://www.instagram.com/mussabhanif",
-              "https://twitter.com/mussabhanif"
-            ],
-            "jobTitle": "Software Engineer / Full-Stack Developer",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Freelance / Self-Employed"
-            },
-            "knowsAbout": [
-              "React", "Next.js", "Vue.js", "Laravel", "Firebase", "React Native",
-            ],
-            "description": "Mussab is a professional full-stack developer with 5 years of experience building modern web and mobile applications.",
-            "birthDate": "2005-11-03",
-            "nationality": "Pakistani",
-            "gender": "Male",
-            "birthPlace": {
-              "@type": "Place",
-              "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "Pakistan"
-              }
-            }
-
-          })
-        }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Mussab Hanif",
+              url: "https://mussabhanif.website",
+              image: "https://mussabhanif.website/mussab.jpg",
+              sameAs: [
+                "https://github.com/mussabhanif",
+                "https://linkedin.com/in/mussabhanif",
+                "https://www.instagram.com/mussabhanif",
+                "https://twitter.com/mussabhanif",
+              ],
+              jobTitle: "3D Creator",
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance / Self-Employed",
+              },
+              description:
+                "Mussab is a 3D creator driven by crafting striking and unforgettable projects.",
+            }),
+          }}
+        />
       </head>
       <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className={`${kanit.className} bg-[#0C0C0C] text-[#D7E2EA]`}
+        style={{ overflowX: "clip" }}
       >
-        <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
-        <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
-
-        <ThemeContextProvider>
-          <ActiveSectionContextProvider>
-            <Header />
-            {children}
-            <Footer />
-
-            <Toaster position="top-right" />
-            <ThemeSwitch />
-            <WhatsappIcon />
-          </ActiveSectionContextProvider>
-        </ThemeContextProvider>
+        {children}
+        <Toaster position="top-right" />
       </body>
     </html>
   );

@@ -1,21 +1,21 @@
-import About from "@/components/about";
-import Contact from "@/components/contact";
-import Experience from "@/components/experience";
-import Intro from "@/components/intro";
-import Projects from "@/components/projects";
-import SectionDivider from "@/components/section-divider";
-import Skills from "@/components/skills";
+import HeroSection from "@/components/portfolio/hero-section";
+import MarqueeSection from "@/components/portfolio/marquee-section";
+import AboutSection from "@/components/portfolio/about-section";
+import ServicesSection from "@/components/portfolio/services-section";
+import ExperienceSection from "@/components/portfolio/experience-section";
+import ProjectsSection from "@/components/portfolio/projects-section";
+import ContactSection from "@/components/portfolio/contact-section";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center px-4">
-      <Intro />
-      <SectionDivider />
-      <About />
-      <Projects />
-      <Skills />
-      <Experience />
-      <Contact />
+    <main className="bg-[#0C0C0C]" style={{ overflowX: "clip" }}>
+      <HeroSection />
+      <MarqueeSection />
+      <AboutSection />
+      <ServicesSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <ContactSection />
     </main>
   );
 }
